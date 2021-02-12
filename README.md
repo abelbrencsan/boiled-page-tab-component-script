@@ -82,14 +82,16 @@ div.tab {
   // Special tab
   &.tab--special {
 
-    > div.tab-triggers {
+    > ul.tab-triggers.grid {
+      border-left: none;
+      margin-bottom: $box-padding;
+      margin-left: ($grid-gutter * -1);
       position: relative;
 
-      > ul.grid {
-        border-left: none;
-        margin-bottom: $box-padding;
+      > li.grid-col {
+        padding-left: $grid-gutter;
 
-        > li.grid-col > button {
+        > button {
           background-color: transparent;
           border-width: 0 0 2px 0;
           font-weight: $bold-font-weight;
@@ -107,9 +109,9 @@ div.tab {
         bottom: 0;
         content: '';
         height: 2px;
-        left: 0;
         position: absolute;
-        width: 100%;
+        right: 0;
+        width: calc(100% - #{$grid-gutter});
       }
     }
 
