@@ -87,11 +87,11 @@ div.tab {
     > div.tab-triggers {
       position: relative;
 
-      > ul {
+      > ul.grid {
         border-left: none;
         margin-bottom: $box-padding;
 
-        > li > button {
+        > li.grid-col > button {
           background-color: transparent;
           border-width: 0 0 2px 0;
           font-weight: $bold-font-weight;

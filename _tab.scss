@@ -5,11 +5,11 @@ $tab-generate-scheme: true;
 div.tab {
 	margin-bottom: $element-margin;
 
-	> div.tab-triggers > ul {
+	> div.tab-triggers > ul.grid {
 		border-left: 1px solid $border-color;
 		margin-bottom: 0;
 
-		> li > button {
+		> li.grid-col > button {
 			background-color: $border-bg-color;
 			border-color: $border-color;
 			border-style: solid;
@@ -61,10 +61,10 @@ div.tab {
 
 			div.tab {
 
-				> div.tab-triggers > ul {
+				> div.tab-triggers > ul.grid {
 					border-color: map-val($schemes, $scheme, border-color);
 
-					> li > button {
+					> li.grid-col > button {
 						border-color: map-val($schemes, $scheme, border-color);
 						background-color: map-val($schemes, $scheme, border-bg-color);
 						color: map-val($schemes, $scheme, fg-light-color);
