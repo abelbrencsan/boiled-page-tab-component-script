@@ -17,7 +17,7 @@ You will also need to place `tab.js` to `/assets/js` directory and add its path 
 Class name | Description | Example
 ---------- | ----------- | -------
 `tab` | Applies a tab. | `<div class="tab"></div>`
-`tab-triggers` | Applies a wrapper for a list of triggers inside tab. | `<div class="tab-triggers"></div>`
+`tab-triggers` | Applies a wrapper for a list of triggers inside tab. | `<ul class="tab-triggers grid"></ul>`
 `tab-panel` | Applies a panel for content inside tab. | `<div class="tab-panel"></div>`
 
 #### Examples
