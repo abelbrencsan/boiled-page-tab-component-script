@@ -5,7 +5,7 @@ $tab-generate-scheme: true;
 div.tab {
 	margin-bottom: $element-margin;
 
-	> div.tab-triggers > ul.grid {
+	> ul.tab-triggers.grid {
 		border-left: 1px solid $border-color;
 		margin-bottom: 0;
 
@@ -61,7 +61,7 @@ div.tab {
 
 			div.tab {
 
-				> div.tab-triggers > ul.grid {
+				> ul.tab-triggers.grid {
 					border-color: map-val($schemes, $scheme, border-color);
 
 					> li.grid-col > button {

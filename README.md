@@ -28,19 +28,17 @@ The following example shows a tab with 3 items.
 
 ```html
 <div class="tab" data-tab>
-  <div class="tab-triggers">
-    <ul class="grid" role="tablist">
-      <li class="grid-col grid-col--xsmall--full">
-        <button aria-controls="tab-1" role="tab" data-tab-trigger>First tab</button>
-      </li>
-      <li class="grid-col grid-col--xsmall--full">
-        <button aria-controls="tab-2" role="tab" data-tab-trigger>Second tab</button>
-      </li>
-      <li class="grid-col grid-col--xsmall--full">
-        <button aria-controls="tab-3" role="tab" data-tab-trigger>Third tab</button>
-      </li>
-    </ul>
-  </div>
+  <ul class="tab-triggers grid" role="tablist">
+    <li class="grid-col grid-col--xsmall--full">
+      <button aria-controls="tab-1" role="tab" data-tab-trigger>First tab</button>
+    </li>
+    <li class="grid-col grid-col--xsmall--full">
+      <button aria-controls="tab-2" role="tab" data-tab-trigger>Second tab</button>
+    </li>
+    <li class="grid-col grid-col--xsmall--full">
+      <button aria-controls="tab-3" role="tab" data-tab-trigger>Third tab</button>
+    </li>
+  </ul>
   <div id="tab-1" class="tab-panel" role="tabpanel" data-tab-panel>
     <p>1. Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
   </div>
