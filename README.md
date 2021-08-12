@@ -17,7 +17,7 @@ You will also need to place `tab.js` to `/assets/js` directory and add its path 
 Class name | Description | Example
 ---------- | ----------- | -------
 `tab` | Applies a tab. | `<div class="tab"></div>`
-`tab-triggers` | Applies a wrapper for a list of triggers inside tab. | `<ul class="tab-triggers grid"></ul>`
+`tab-trigger-list` | Applies a list of triggers inside tab. Grid component is used for alignment. | `<ul class="tab-trigger-list grid"></ul>`
 `tab-panel` | Applies a panel for content inside tab. | `<div class="tab-panel"></div>`
 
 #### Examples
@@ -28,7 +28,7 @@ The following example shows a tab with 3 items.
 
 ```html
 <div class="tab" data-tab>
-  <ul class="tab-triggers grid" role="tablist">
+  <ul class="tab-trigger-list grid" role="tablist">
     <li class="grid-col grid-col--xsmall--full">
       <button aria-controls="tab-1" role="tab" data-tab-trigger>First tab</button>
     </li>
@@ -82,7 +82,7 @@ div.tab {
   // Special tab
   &.tab--special {
 
-    > ul.tab-triggers.grid {
+    > ul.tab-trigger-list.grid {
       border-left: none;
       margin-bottom: $box-padding;
       margin-left: ($grid-gutter * -1);
@@ -170,11 +170,3 @@ index | Number | Yes | Index of tab item to be selected.
 ##### Destroy tab
 
 `destroy()` - Destroy tab. It removes events, classes and attributes relevant to tab.
-
-##### Check tab is initialized or not
-
-`getIsInitialized()` - Check tab is initialized or not. It returns `true` when it is already initialized, `false` if not.
-
-##### Get index of current item.
-
-`getIndex()` - Get index of current tab item.

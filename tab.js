@@ -1,5 +1,5 @@
 /**
- * Tab - v1.0.0
+ * Tab - v1.0.1
  * Copyright 2020 Abel Brencsan
  * Released under the MIT License
  */
@@ -158,29 +158,13 @@ Tab.prototype = function () {
 			this.index = 0;
 			this.isInitialized = false;
 			if (this.destroyCallback) this.destroyCallback.call(this);
-		},
-
-		/**
-		 * Get value of "isInitialized" to be able to check tab is initialized or not. (public)
-		 */
-		getIsInitialized: function() {
-			return this.isInitialized;
-		},
-
-		/**
-		 * Get value of "index" to be able to get index of current item. (public)
-		 */
-		getIndex: function() {
-			return this.index;
 		}
 	};
 
 	return {
 		init: tab.init,
 		select: tab.select,
-		destroy: tab.destroy,
-		getIsInitialized: tab.getIsInitialized,
-		getIndex: tab.getIndex
+		destroy: tab.destroy
 	};
 
 }();
