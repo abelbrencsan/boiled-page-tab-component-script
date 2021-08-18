@@ -1,6 +1,6 @@
 /**
- * Tab - v1.0.1
- * Copyright 2020 Abel Brencsan
+ * Tab - v1.1.0
+ * Copyright 2021 Abel Brencsan
  * Released under the MIT License
  */
 
