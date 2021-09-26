@@ -16,7 +16,7 @@ div.tab {
 			border-width: 1px 1px 0px 0px;
 			color: $fg-light-color;
 			cursor: pointer;
-			padding: $box-padding * 0.75 $box-padding;
+			padding: ($box-padding * 0.75) $box-padding;
 			text-align: center;
 			width: 100%;
 
