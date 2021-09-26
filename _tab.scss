@@ -57,7 +57,7 @@ div.tab {
 /* Tab component scheme modifications */
 @each $scheme in map-keys($schemes) {
 	@if (map-val($schemes, $scheme, generate-scheme) and $tab-generate-scheme) {
-		&.scheme--#{$scheme} {
+		.scheme--#{$scheme} {
 
 			div.tab {
 
