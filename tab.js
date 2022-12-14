@@ -126,11 +126,11 @@ Tab.prototype = function () {
 					}
 					break;
 				case 'keydown':
-					if (event.keyCode == 37) {
+					if (event.key == 'ArrowLeft') {
 						event.preventDefault();
 						tab.select.call(this, this.index - 1, true);
 					}
-					if (event.keyCode == 39) {
+					if (event.key == 'ArrowRight') {
 						event.preventDefault();
 						tab.select.call(this, this.index + 1, true);
 					}
