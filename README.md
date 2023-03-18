@@ -28,17 +28,11 @@ The following example shows a tab with 3 items.
 
 ```html
 <div class="tab" data-tab>
-  <ul class="tab-trigger-list grid" role="tablist">
-    <li class="grid-col grid-col--xsmall--full">
-      <button aria-controls="tab-1" role="tab" data-tab-trigger>First tab</button>
-    </li>
-    <li class="grid-col grid-col--xsmall--full">
-      <button aria-controls="tab-2" role="tab" data-tab-trigger>Second tab</button>
-    </li>
-    <li class="grid-col grid-col--xsmall--full">
-      <button aria-controls="tab-3" role="tab" data-tab-trigger>Third tab</button>
-    </li>
-  </ul>
+  <div class="tab-trigger-list grid" role="tablist">
+    <button aria-controls="tab-1" role="tab" data-tab-trigger>First tab</button>
+    <button aria-controls="tab-2" role="tab" data-tab-trigger>Second tab</button>
+    <button aria-controls="tab-3" role="tab" data-tab-trigger>Third tab</button>
+  </div>
   <div id="tab-1" class="tab-panel" role="tabpanel" data-tab-panel>
     <p>1. Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
   </div>
@@ -82,25 +76,22 @@ div.tab {
   // Special tab
   &.tab--special {
 
-    > ul.tab-trigger-list.grid {
+    > div.tab-trigger-list {
       border-left: none;
       margin-bottom: $box-padding;
       margin-left: ($grid-gutter * -1);
       position: relative;
 
-      > li.grid-col {
-        padding-left: $grid-gutter;
+      > button {
+        background-color: transparent;
+        border-width: 0 0 2px 0;
+        font-weight: $bold-font-weight;
+        margin-left: $grid-gutter;
+        padding: $box-padding * 0.75 0;
+        position: relative;
 
-        > button {
-          background-color: transparent;
-          border-width: 0 0 2px 0;
-          font-weight: $bold-font-weight;
-          padding: $box-padding * 0.75 0;
-          position: relative;
-
-          &.is-selected {
-            border-color: $fg-color;
-          }
+        &.is-selected {
+          border-color: $fg-color;
         }
       }
 
@@ -119,6 +110,20 @@ div.tab {
       border-radius: 0;
       border: none;
       padding: 0;
+    }
+  }
+
+  @include breakpoint('small') {
+
+    &.tab--special {
+
+      > div.tab-trigger-list {
+        margin-left: 0;
+
+        > button {
+          margin-left: 0;
+        }
+      }
     }
   }
 }

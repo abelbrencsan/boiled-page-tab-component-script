@@ -5,20 +5,22 @@ $tab-generate-scheme: true;
 div.tab {
 	margin-bottom: $element-margin;
 
-	> ul.tab-trigger-list.grid {
+	> div.tab-trigger-list {
 		border-left: 1px solid $border-color;
+		display: flex;
+		flex-flow: row wrap;
 		margin-bottom: 0;
 
-		> li.grid-col > button {
+		> button {
 			background-color: $border-bg-color;
 			border-color: $border-color;
 			border-style: solid;
 			border-width: 1px 1px 0px 0px;
 			color: $fg-light-color;
 			cursor: pointer;
+			flex: 0 1 auto;
 			padding: ($box-padding * 0.75) $box-padding;
 			text-align: center;
-			width: 100%;
 
 			&.is-selected {
 				background-color: inherit;
@@ -48,6 +50,17 @@ div.tab {
 			margin-bottom: 0;
 		}
 	}
+
+	@include breakpoint('small') {
+
+		> div.tab-trigger-list {
+
+			> button {
+				flex: 0 0 100%;
+				max-width: 100%;
+			}
+		}
+	}
 }
 
 /* Tab component extensions */
@@ -61,12 +74,12 @@ div.tab {
 
 			div.tab {
 
-				> ul.tab-trigger-list.grid {
+				> div.tab-trigger-list {
 					border-color: map-val($schemes, $scheme, border-color);
 
-					> li.grid-col > button {
-						border-color: map-val($schemes, $scheme, border-color);
+					> button {
 						background-color: map-val($schemes, $scheme, border-bg-color);
+						border-color: map-val($schemes, $scheme, border-color);
 						color: map-val($schemes, $scheme, fg-light-color);
 
 						&.is-selected {
