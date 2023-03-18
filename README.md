@@ -28,7 +28,7 @@ The following example shows a tab with 3 items.
 
 ```html
 <div class="tab" data-tab>
-  <div class="tab-triggers grid" role="tablist">
+  <div class="tab-triggers" role="tablist">
     <button aria-controls="tab-1" role="tab" data-tab-trigger>First tab</button>
     <button aria-controls="tab-2" role="tab" data-tab-trigger>Second tab</button>
     <button aria-controls="tab-3" role="tab" data-tab-trigger>Third tab</button>
