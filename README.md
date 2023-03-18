@@ -17,7 +17,7 @@ You will also need to place `tab.js` to `/assets/js` directory and add its path 
 Class name | Description | Example
 ---------- | ----------- | -------
 `tab` | Applies a tab. | `<div class="tab"></div>`
-`tab-trigger-list` | Applies a list of triggers inside tab. Grid component is used for alignment. | `<ul class="tab-trigger-list grid"></ul>`
+`tab-triggers` | Applies a group of triggers inside tab. | `<div class="tab-triggers"></div>`
 `tab-panel` | Applies a panel for content inside tab. | `<div class="tab-panel"></div>`
 
 #### Examples
@@ -28,7 +28,7 @@ The following example shows a tab with 3 items.
 
 ```html
 <div class="tab" data-tab>
-  <div class="tab-trigger-list grid" role="tablist">
+  <div class="tab-triggers grid" role="tablist">
     <button aria-controls="tab-1" role="tab" data-tab-trigger>First tab</button>
     <button aria-controls="tab-2" role="tab" data-tab-trigger>Second tab</button>
     <button aria-controls="tab-3" role="tab" data-tab-trigger>Third tab</button>
@@ -76,7 +76,7 @@ div.tab {
   // Special tab
   &.tab--special {
 
-    > div.tab-trigger-list {
+    > div.tab-triggers {
       border-left: none;
       margin-bottom: $box-padding;
       margin-left: ($grid-gutter * -1);
@@ -117,7 +117,7 @@ div.tab {
 
     &.tab--special {
 
-      > div.tab-trigger-list {
+      > div.tab-triggers {
         margin-left: 0;
 
         > button {
