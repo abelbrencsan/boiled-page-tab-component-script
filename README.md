@@ -166,7 +166,7 @@ Option| Type | Default | Required | Description
 
 ##### Select tab item by given index
 
-`select(index)` - Show tab item by given index, hide current one.
+`select(index)` - Select tab by given index.
 
 Parameter | Type | Required | Description
 ----------|------|----------|------------

@@ -1,19 +1,22 @@
 /**
- * Tab - v1.1.0
- * Copyright 2021 Abel Brencsan
+ * Tab
+ * Copyright 2024 Abel Brencsan
  * Released under the MIT License
  */
-
-var Tab = function(options) {
+const Tab = function(options) {
 
 	'use strict';
 
 	// Test required options
-	if (typeof options.panels !== 'object') throw 'Tab "panels" option must be an object';
-	if (typeof options.triggers !== 'object') throw 'Tab "triggers" option must be an object';
+	if (!(options.panels instanceof NodeList)) {
+		throw 'Tab "panels" must be a `NodeList`';
+	}
+	if (!(options.triggers instanceof NodeList)) {
+		throw 'Tab "triggers" must be a `NodeList`';
+	}
 
 	// Default tab instance options
-	var defaults = {
+	let defaults = {
 		panels: null,
 		triggers: null,
 		initialIndex: 0,
@@ -25,7 +28,7 @@ var Tab = function(options) {
 	};
 
 	// Extend tab instance options with defaults
-	for (var key in defaults) {
+	for (let key in defaults) {
 		this[key] = (options.hasOwnProperty(key)) ? options[key] : defaults[key];
 	}
 
@@ -39,17 +42,20 @@ Tab.prototype = function () {
 
 	'use strict';
 
-	var tab = {
+	let tab = {
 
 		/**
-		* Initialize tab. It creates related events, show initial tab item. (public)
+		* Initialize tab.
+		* It creates related events, show initial tab item.
+		* 
+		* @public
 		*/
 		init: function() {
 			if (this.isInitialized) return;
 			this.handleEvent = function(event) {
 				tab.handleEvents.call(this, event);
 			};
-			for (var i = 0; i < this.triggers.length; i++) {
+			for (let i = 0; i < this.triggers.length; i++) {
 				this.triggers[i].addEventListener('click', this);
 				this.triggers[i].addEventListener('keydown', this);
 			}
@@ -62,7 +68,11 @@ Tab.prototype = function () {
 		},
 
 		/**
-		* Show tab item by given index, hide current one. (public)
+		* Select tab by given index
+		* 
+		* @public
+		* @param {number} index
+		* @param {bool} setFocus
 		*/
 		select: function(index, setFocus) {
 			this.index = index;
@@ -72,7 +82,7 @@ Tab.prototype = function () {
 			else if (index < 0) {
 				this.index = this.triggers.length - 1;
 			}
-			for (var i = 0; i < this.triggers.length; i++) {
+			for (let i = 0; i < this.triggers.length; i++) {
 				if (i !== this.index) {
 					tab.hide.call(this, i);
 				}
@@ -85,7 +95,10 @@ Tab.prototype = function () {
 		},
 
 		/**
-		* Show tab by given index. (private)
+		* Show tab at given index.
+		* 
+		* @private
+		* @param {number} index
 		*/
 		show: function(index) {
 			this.triggers[index].classList.add(this.isSelectedClass);
@@ -97,7 +110,10 @@ Tab.prototype = function () {
 		},
 
 		/**
-		* Hide tab by given index. (private)
+		* Hide tab at given index.
+		* 
+		* @private
+		* @param {number} index
 		*/
 		hide: function(index) {
 			this.triggers[index].classList.remove(this.isSelectedClass);
@@ -109,18 +125,20 @@ Tab.prototype = function () {
 		},
 
 		/**
-		* Handle events. (private)
-		* On trigger click: Select tab item.
-		* On right arrow keydown: Select next tab item.
-		* On left arrow keydown: Select previous tab item.
-		* @param event object
+		* Handle events.
+		* On trigger click: select tab item.
+		* On right arrow keydown: select next tab item.
+		* On left arrow keydown: select previous tab item.
+		* 
+		* @private
+		* @param {Event} event
 		*/
 		handleEvents: function(event) {
 			switch(event.type) {
 				case 'click':
 					event.preventDefault();
-					for (var i = 0; i < this.triggers.length; i++) {
-						if (event.target == this.triggers[i]) {
+					for (let i = 0; i < this.triggers.length; i++) {
+						if (event.target == this.triggers[i] || this.triggers[i].contains(event.target)) {
 							tab.select.call(this, i, true);
 						}
 					}
@@ -139,18 +157,21 @@ Tab.prototype = function () {
 		},
 
 		/**
-		* Destroy tab. It removes events, classes and attributes relevant to tab. (public)
+		* Destroy tab.
+		* It removes events, classes and attributes relevant to tab.
+		* 
+		* @public
 		*/
 		destroy: function() {
 			if (!this.isInitialized) return;
-			for (var i = 0; i < this.triggers.length; i++) {
+			for (let i = 0; i < this.triggers.length; i++) {
 				this.triggers[i].removeEventListener('click', this);
 				this.triggers[i].removeEventListener('keydown', this);
 				this.triggers[i].classList.remove(this.isSelectedClass);
 				this.triggers[i].removeAttribute('aria-selected');
 				this.triggers[i].removeAttribute('tabindex');
 			}
-			for (var i = 0; i < this.panels.length; i++) {
+			for (let i = 0; i < this.panels.length; i++) {
 				this.panels[i].classList.remove(this.isVisibleClass);
 				this.panels[i].removeAttribute('aria-hidden');
 				this.panels[i].removeAttribute('tabindex');
