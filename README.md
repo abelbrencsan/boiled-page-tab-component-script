@@ -162,7 +162,7 @@ Option| Type | Default | Required | Description
 
 ##### Initialize tab
 
-`init()` - Initialize tab. It creates related events, show initial tab item.
+`init()` - Initialize tab.
 
 ##### Select tab item by given index
 
@@ -174,4 +174,4 @@ index | Number | Yes | Index of tab item to be selected.
 
 ##### Destroy tab
 
-`destroy()` - Destroy tab. It removes events, classes and attributes relevant to tab.
+`destroy()` - Destroy tab.

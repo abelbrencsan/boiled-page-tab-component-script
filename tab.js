@@ -46,7 +46,6 @@ Tab.prototype = function () {
 
 		/**
 		* Initialize tab.
-		* It creates related events, show initial tab item.
 		* 
 		* @public
 		*/
@@ -68,11 +67,11 @@ Tab.prototype = function () {
 		},
 
 		/**
-		* Select tab by given index
+		* Select tab by given index.
 		* 
 		* @public
 		* @param {number} index
-		* @param {bool} setFocus
+		* @param {boolean} setFocus
 		*/
 		select: function(index, setFocus) {
 			this.index = index;
@@ -158,7 +157,6 @@ Tab.prototype = function () {
 
 		/**
 		* Destroy tab.
-		* It removes events, classes and attributes relevant to tab.
 		* 
 		* @public
 		*/
